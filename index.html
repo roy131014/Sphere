@@ -91,7 +91,7 @@
             gl.viewport(0, 0, canvas.width, canvas.height);
 
             gl.bindBuffer(gl.ARRAY_BUFFER, geometry.vbo);
-            gl.vertexAttribPointer(aVertex, 3, gl.FLOAT, false, 0, 0);
+            gl.vertexAttribPointerm (aVertex, 3, gl.FLOAT, false, 0, 0);
             
             gl.bindBuffer(gl.ARRAY_BUFFER, geometry.nbo);
             gl.vertexAttribPointer(aNormal, 3, gl.FLOAT, false, 0, 0);
@@ -111,7 +111,7 @@
                 gl.activeTexture(gl.TEXTURE0);
                 gl.bindTexture(gl.TEXTURE_2D, texture);
             }, false);
-            image.src = "earthmap.jpg";
+            image.src = "./earthmap.jpg";
         }
         
         function setupShaders() {
