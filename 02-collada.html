@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,user-scalable=0">
-    <title>Chapter 11: Collada loading</title>
+    <title>3D WebGL Sphere</title>
     
     <script>
         var jewel = {};
@@ -28,7 +28,7 @@
         var webgl = jewel.webgl,
             canvas = document.getElementById("webgl"),
             gl = webgl.createContext(canvas);
-
+textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg')
         // enable debug mode
         gl = WebGLDebugUtils.makeDebugContext(gl);
 
@@ -116,11 +116,17 @@
         
         
     </script>
+    <style>
+        body{
+             display: flex;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center;     /* 세로 중앙 */
+  height: 100vh;    
+        background-color:#262626;
+        }
+    </style>
     
     
-    <em style="display:block;margin-top:1em;">
-    Note: This example does not work when running locally (from a file:// url).
-    </em>
 
 </body>
 </html>
