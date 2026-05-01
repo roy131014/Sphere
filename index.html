@@ -28,7 +28,7 @@
         var webgl = jewel.webgl,
             canvas = document.getElementById("webgl"),
             gl = webgl.createContext(canvas);
-textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg')
+
         // enable debug mode
         gl = WebGLDebugUtils.makeDebugContext(gl);
 
@@ -78,39 +78,9 @@ textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2
             gl.drawElements(gl.TRIANGLES, geometry.num, gl.UNSIGNED_SHORT, 0);
         }
         
-        
-        function setupShaders() {
-            var vsource = 
-            "attribute vec3 aVertex;\r\n" +
-
-            "uniform mat4 uModelView;\r\n" +
-            "uniform mat4 uProjection;\r\n" +
-            
-            "varying vec3 vColor;\r\n" +
-            
-            "void main(void) {\r\n" +
-            "    vec4 position = uModelView * vec4(aVertex, 1.0);\r\n" +
-            "    vColor = aVertex.xyz * 0.5 + 0.5;\r\n" +
-            "    gl_Position = uProjection * position;\r\n" +
-            "}"
-            ;
-
-            var fsource = 
-            "#ifdef GL_ES\r\n" +
-            "precision mediump float;\r\n" + 
-            "#endif\r\n" +
-            
-            "varying vec3 vColor;\r\n" +
-            
-            "void main(void) {\r\n" +
-            "    gl_FragColor = vec4(vColor, 1.0);\r\n" +
-            "}\r\n"
-            ;
-            
-            var vshader = webgl.createShaderObject(gl, gl.VERTEX_SHADER, vsource),
-                fshader = webgl.createShaderObject(gl, gl.FRAGMENT_SHADER, fsource);
-                
-            return webgl.createProgramObject(gl, vshader, fshader);
+        var tex = textureLoader.load('https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg')
+    
+            return webgl.createProgramObject(gl, tex);
         }
 
         
